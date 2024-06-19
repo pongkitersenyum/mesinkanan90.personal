@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website with 3 Columns</title>
+    <title>Website with Pagination</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body {
+            background-color: #ffffff; /* White background color */
+        }
+
         .banner {
             background-color: #007bff;
             color: white;
@@ -17,6 +21,20 @@
 
         .card-ad {
             margin-bottom: 20px;
+            background-color: #87CEEB; /* Sky blue card color */
+        }
+
+        .pagination {
+            justify-content: center;
+        }
+
+        .news-card a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .news-card a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -31,75 +49,163 @@
             <!-- Left Column (Ads) -->
             <div class="col-md-2">
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 1</h5>
-                        <p class="card-text">This is the first ad.</p>
-                    </div>
+                    <a href="https://example.com/ad1" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 1</h5>
+                            <p class="card-text">This is the first ad.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 2</h5>
-                        <p class="card-text">This is the second ad.</p>
-                    </div>
+                    <a href="https://example.com/ad2" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 2</h5>
+                            <p class="card-text">This is the second ad.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 3</h5>
-                        <p class="card-text">This is the third ad.</p>
-                    </div>
+                    <a href="https://example.com/ad3" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 3</h5>
+                            <p class="card-text">This is the third ad.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <!-- Middle Column (Main News) -->
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-body">
-                        <h2>Main News</h2>
-                        <p>This is the main news section.</p>
-                    </div>
-                </div>
+            <div class="col-md-8" id="news-container">
+                <!-- News articles will be inserted here by JavaScript -->
             </div>
 
             <!-- Right Column (Ads) -->
             <div class="col-md-2">
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 1</h5>
-                        <p class="card-text">This is the first ad.</p>
-                    </div>
+                    <a href="https://example.com/ad4" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 4</h5>
+                            <p class="card-text">This is the fourth ad.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 2</h5>
-                        <p class="card-text">This is the second ad.</p>
-                    </div>
+                    <a href="https://example.com/ad5" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 5</h5>
+                            <p class="card-text">This is the fifth ad.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 3</h5>
-                        <p class="card-text">This is the third ad.</p>
-                    </div>
+                    <a href="https://example.com/ad6" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 6</h5>
+                            <p class="card-text">This is the sixth ad.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 4</h5>
-                        <p class="card-text">This is the fourth ad.</p>
-                    </div>
+                    <a href="https://example.com/ad7" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 7</h5>
+                            <p class="card-text">This is the seventh ad.</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="card card-ad">
-                    <div class="card-body">
-                        <h5 class="card-title">Ad 5</h5>
-                        <p class="card-text">This is the fifth ad.</p>
-                    </div>
+                    <a href="https://example.com/ad8" target="_blank">
+                        <div class="card-body">
+                            <h5 class="card-title">Ad 8</h5>
+                            <p class="card-text">This is the eighth ad.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
+
+        <!-- Pagination -->
+        <nav>
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#" id="prev">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#" id="next">Next</a></li>
+            </ul>
+        </nav>
     </div>
 
     <!-- JavaScript and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const newsData = [
+            { title: "News 1", content: "Content for news 1.", image: "https://via.placeholder.com/800x400?text=News+1", link: "https://example.com/news1" },
+            { title: "News 2", content: "Content for news 2.", image: "https://via.placeholder.com/800x400?text=News+2", link: "https://example.com/news2" },
+            { title: "News 3", content: "Content for news 3.", image: "https://via.placeholder.com/800x400?text=News+3", link: "https://example.com/news3" },
+            { title: "News 4", content: "Content for news 4.", image: "https://via.placeholder.com/800x400?text=News+4", link: "https://example.com/news4" },
+            { title: "News 5", content: "Content for news 5.", image: "https://via.placeholder.com/800x400?text=News+5", link: "https://example.com/news5" },
+            { title: "News 6", content: "Content for news 6.", image: "https://via.placeholder.com/800x400?text=News+6", link: "https://example.com/news6" },
+            { title: "News 7", content: "Content for news 7.", image: "https://via.placeholder.com/800x400?text=News+7", link: "https://example.com/news7" },
+            { title: "News 8", content: "Content for news 8.", image: "https://via.placeholder.com/800x400?text=News+8", link: "https://example.com/news8" },
+            { title: "News 9", content: "Content for news 9.", image: "https://via.placeholder.com/800x400?text=News+9", link: "https://example.com/news9" },
+            { title: "News 10", content: "Content for news 10.", image: "https://via.placeholder.com/800x400?text=News+10", link: "https://example.com/news10" }
+        ];
+
+        const newsContainer = document.getElementById('news-container');
+        const itemsPerPage = 3;
+        let currentPage = 1;
+
+        function renderNews(page) {
+            newsContainer.innerHTML = '';
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedNews = newsData.slice(start, end);
+
+            paginatedNews.forEach(news => {
+                const newsCard = document.createElement('div');
+                newsCard.classList.add('card', 'mb-4', 'news-card');
+                newsCard.innerHTML = `
+                    <a href="${news.link}" target="_blank">
+                        <img src="${news.image}" class="card-img-top" alt="${news.title}">
+                        <div class="card-body">
+                            <h5 class="card-title">${news.title}</h5>
+                            <p class="card-text">${news.content}</p>
+                        </div>
+                    </a>
+                `;
+                newsContainer.appendChild(newsCard);
+            });
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(newsData.length / itemsPerPage);
+            document.getElementById('prev').parentElement.classList.toggle('disabled', currentPage === 1);
+            document.getElementById('next').parentElement.classList.toggle('disabled', currentPage === totalPages);
+        }
+
+        document.getElementById('prev').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+                currentPage--;
+                renderNews(currentPage);
+                updatePagination();
+            }
+        });
+
+        document.getElementById('next').addEventListener('click', (e) => {
+            e.preventDefault();
+            const totalPages = Math.ceil(newsData.length / itemsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderNews(currentPage);
+                updatePagination();
+            }
+        });
+
+        // Initial render
+        renderNews(currentPage);
+        updatePagination();
+    </script>
 </body>
 
 </html>
